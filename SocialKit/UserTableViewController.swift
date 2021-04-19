@@ -19,7 +19,6 @@ class UserTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Chegou!")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +31,7 @@ class UserTableViewController: UITableViewController {
             
             let task = session.dataTask(with: request) { (data, resp, error) in
                 if let response = resp as? HTTPURLResponse, response.statusCode >= 200 && response.statusCode < 300 {
+                    
                     if let users = try? JSONDecoder().decode([User].self, from: data!) {
                         DispatchQueue.main.async {
                             self.users = users
@@ -60,11 +60,6 @@ class UserTableViewController: UITableViewController {
         
         cell.user = user
         
-        //Não faça assim!
-//        if let nomeLabel = cell.viewWithTag(10) as? UILabel {
-//            nomeLabel.text = "Nome \(index)"
-//        }
-        
         return cell
         
     }
@@ -76,28 +71,16 @@ class UserTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier, identifier == "onUserSegue" {
-            print("Sender: \(sender ?? "não veio!")")
-            
             if let userCell = sender as? UserTableViewCell, let user = userCell.user {
-                
-                segue.destination.title = user.name
-                
+                if let postViewController = segue.destination as? PostTableViewController{
+                    postViewController.title = user.name
+//                    postViewController.
+                }
             }
         }
     }
-    
 }
 
-//Padrão de projeto Business Delegate
-
-//extension UserTableViewController: UITableViewDataSource {
-//
-//}
-//
-//extension UserTableViewController: UITableViewDelegate {
-//
-//}

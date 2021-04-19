@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zs5-dL-lyS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LNi-hh-hwj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -53,7 +52,7 @@
                                 <connections>
                                     <outlet property="emailLabel" destination="ET5-n1-Fd6" id="xwN-FI-ji3"/>
                                     <outlet property="nameLabel" destination="YE2-9A-JNa" id="Qlo-qg-vrF"/>
-                                    <segue destination="1qF-PE-QVG" kind="show" identifier="onUserSegue" id="FCa-wF-Wr1"/>
+                                    <segue destination="Zs5-dL-lyS" kind="show" identifier="onUserSegue" id="wyS-p1-4hV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -69,22 +68,6 @@
             <point key="canvasLocation" x="397.10144927536237" y="9.375"/>
         </scene>
         <!--Post Table View Controller-->
-        <scene sceneID="UEL-W5-iqU">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fIx-UN-v2O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="1qF-PE-QVG" customClass="PostTableViewController" customModule="SocialKit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KYm-uR-nZ1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ipF-W9-arq"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="oe9-LR-naT"/>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1245" y="9"/>
-        </scene>
-        <!--Post Table View Controller-->
         <scene sceneID="hlO-Lx-m8u">
             <objects>
                 <tableViewController id="Zs5-dL-lyS" customClass="PostTableViewController" customModule="SocialKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -93,11 +76,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postsCell" rowHeight="83" id="eEn-An-H8G" customClass="PostTableViewCell" customModule="SocialKit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="83"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="postsCell" rowHeight="95" id="eEn-An-H8G" customClass="PostTableViewCell" customModule="SocialKit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eEn-An-H8G" id="Nic-Cg-YEO">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4h6-2F-L05">
@@ -124,6 +107,10 @@
                                         <constraint firstItem="VgX-MM-uTj" firstAttribute="top" secondItem="Nic-Cg-YEO" secondAttribute="top" symbolic="YES" id="uwP-qL-ho4"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="corpoLabel" destination="pjK-4n-3Zh" id="cjc-Df-Ie3"/>
+                                    <outlet property="tituloLabel" destination="VgX-MM-uTj" id="Nxf-vR-bRz"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -131,10 +118,11 @@
                             <outlet property="delegate" destination="Zs5-dL-lyS" id="iwF-uM-pwt"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="8ZP-Tz-0KA"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIL-An-Hoh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="582.60869565217399" y="703.79464285714278"/>
+            <point key="canvasLocation" x="1315.9420289855072" y="8.7053571428571423"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pQb-Jl-6co">

@@ -16,22 +16,23 @@ class PostTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
 //        if let url = URL(string: "\(kBaseURL)/posts/\(user.id)"){
-        if let url = URL(string: "\(kBaseURL)/posts/1") {
+        if let url = URL(string: "\(kBaseURL)/posts") {
+            print(url)
             let session = URLSession.shared
 
             let request = URLRequest(url: url)
             
             let task = session.dataTask(with: request) { (data, resp, error) in
                 if let response = resp as? HTTPURLResponse, response.statusCode >= 200 && response.statusCode < 300 {
+                    print(response.statusCode)
                     if let posts = try? JSONDecoder().decode([Post].self, from: data!) {
                         DispatchQueue.main.async {
                             self.posts = posts
@@ -66,16 +67,4 @@ class PostTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier, identifier == "onUserSegue" {
-            if let userCell = sender as? UserTableViewCell, let user = userCell.user {
-                
-                segue.destination.title = user.name
-                
-            }
-        }
-    }
-    
 }

@@ -8,18 +8,18 @@
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
-
     
     @IBOutlet weak var tituloLabel: UILabel!
     
     @IBOutlet weak var corpoLabel: UILabel!
     
-    var post: Post? {
+    var post: Post?{
         didSet {
-            if let post = post {
+            if let post = post{
                 tituloLabel.text = post.title
                 corpoLabel.text = post.body
             }
         }
     }
+    
 }
