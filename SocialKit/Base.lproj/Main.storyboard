@@ -83,8 +83,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="152"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4h6-2F-L05">
-                                            <rect key="frame" x="34" y="54" width="90" height="43.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4h6-2F-L05">
+                                            <rect key="frame" x="28" y="54.5" width="90" height="43.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgX-MM-uTj">
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="23"/>
@@ -102,8 +102,11 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="4h6-2F-L05" secondAttribute="trailing" constant="8" id="SsM-Ow-aKL"/>
-                                        <constraint firstItem="VgX-MM-uTj" firstAttribute="top" secondItem="Nic-Cg-YEO" secondAttribute="top" symbolic="YES" id="uwP-qL-ho4"/>
+                                        <constraint firstItem="4h6-2F-L05" firstAttribute="centerY" secondItem="Nic-Cg-YEO" secondAttribute="centerY" id="7hu-em-jMb"/>
+                                        <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="4h6-2F-L05" secondAttribute="trailing" constant="8" id="HsY-HK-tNB"/>
+                                        <constraint firstItem="4h6-2F-L05" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Nic-Cg-YEO" secondAttribute="topMargin" constant="8" id="IZ3-ZX-xc8"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="4h6-2F-L05" secondAttribute="bottom" constant="8" id="JmH-Ej-oPk"/>
+                                        <constraint firstItem="4h6-2F-L05" firstAttribute="leading" secondItem="Nic-Cg-YEO" secondAttribute="leadingMargin" constant="8" id="Ybg-1e-5gL"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
