@@ -77,7 +77,7 @@ class UserTableViewController: UITableViewController {
             if let userCell = sender as? UserTableViewCell, let user = userCell.user {
                 if let postViewController = segue.destination as? PostTableViewController{
                     postViewController.title = user.name
-//                    postViewController.
+                    postViewController.user = user 
                 }
             }
         }

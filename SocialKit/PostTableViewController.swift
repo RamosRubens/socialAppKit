@@ -11,11 +11,9 @@ class PostTableViewController: UITableViewController {
     
     private let kBaseURL = "https://jsonplaceholder.typicode.com"
 
-    private var posts = [Post]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var user: User?
+    
+    var posts: Post?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,19 +21,17 @@ class PostTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        if let url = URL(string: "\(kBaseURL)/posts/\(user.id)"){
-        if let url = URL(string: "\(kBaseURL)/posts") {
+        if let url = URL(string: "\(kBaseURL)/posts/\(user!.id)"){
             print(url)
             let session = URLSession.shared
-
             let request = URLRequest(url: url)
-            
             let task = session.dataTask(with: request) { (data, resp, error) in
                 if let response = resp as? HTTPURLResponse, response.statusCode >= 200 && response.statusCode < 300 {
                     print(response.statusCode)
-                    if let posts = try? JSONDecoder().decode([Post].self, from: data!) {
+                    if let posts = try? JSONDecoder().decode(Post.self, from: data!) {
                         DispatchQueue.main.async {
                             self.posts = posts
+                            self.tableView.reloadData()
                         }
                     }
                 }
@@ -45,13 +41,13 @@ class PostTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         
-        let post = posts[index]
+        let post = posts
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "postsCell", for: indexPath) as! PostTableViewCell
         
